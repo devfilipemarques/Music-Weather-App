@@ -1,4 +1,4 @@
-Objetivo:
+Objetivo: *
 Consumo de API externas, à partir de documentação
 Salvar as informações somente no storage do navegador (Não utilizar backend e/ou banco de dados)
 Estrutura de projeto (Componentes, etc)
