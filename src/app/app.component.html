@@ -1,3 +1,16 @@
-<app-form-input></app-form-input>
-teste
-<router-outlet></router-outlet>
+<div class="container">
+  <div class="header">
+    <div class="box">
+      <button class="btn btn-dark"><a class="nav-link text-white" routerLink="/music-list">Lista de Músicas Salvas</a></button>
+    </div>
+   </div>
+</div>
+
+<main class="container mt-3">
+  <router-outlet>
+    <app-search></app-search>
+  </router-outlet>
+</main>
+
+
+

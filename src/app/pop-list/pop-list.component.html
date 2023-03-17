@@ -1,0 +1,35 @@
+<div class="container">
+  <hr class="my-5 bg-white text-white">
+  <div class="row justify-content-center mt-5">
+    <div class="col-lg-12">
+      <div *ngIf="ngOnInit">
+        <div class="text-center text-white">
+          <h4 class="fw-bold mb-3">Lista de Músicas de Pop</h4>
+        </div>
+        <table class="table">
+          <thead>
+            <tr class="fw-bold text-white">
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let tracks of trackList; let i = index" class="shz-partial-trackv5">
+              <td>{{i+1}}</td>
+              <td><img [src]="tracks.avatar" class="image album-art flex-reset img-on animEnd"></td>
+              <td>{{tracks.title}}</td>
+              <td>{{tracks.subtitle}}</td>
+              <td><a href="{{tracks.url}}" target="_blank"><mat-icon>play_circle_filled</mat-icon></a></td>
+              <td><button (click)="saveList(tracks.listSaves)" class="btn btn-primary">Salvar</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+</div>

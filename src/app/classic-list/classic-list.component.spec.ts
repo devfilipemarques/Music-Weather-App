@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FormInputComponent } from './form-input.component';
+import { ClassicListComponent } from './classic-list.component';
 
-describe('FormInputComponent', () => {
-  let component: FormInputComponent;
-  let fixture: ComponentFixture<FormInputComponent>;
+describe('ClassicListComponent', () => {
+  let component: ClassicListComponent;
+  let fixture: ComponentFixture<ClassicListComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FormInputComponent ]
+      declarations: [ ClassicListComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(FormInputComponent);
+    fixture = TestBed.createComponent(ClassicListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
