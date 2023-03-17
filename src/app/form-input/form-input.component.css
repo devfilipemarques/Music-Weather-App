@@ -1,0 +1,24 @@
+.login-form .form-control {
+  height: 44px;
+  border: none;
+  margin-bottom: 14px;
+  border: 2px solid #eaeaea;
+  border-radius: 0px;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.btn-primary {
+  background: -webkit-linear-gradient(61.56deg, #6c14cf 0, #cb208e 100%);
+  background: -o-linear-gradient(61.56deg, #6c14cf 0, #cb208e 100%);
+  background: linear-gradient(80deg, #6c14cf 0, #cb208e 100%);
+  border: none;
+  transition: color 0.5s, transform 0.2s;
+}
+
+.btn-primary:hover {
+  background: -webkit-linear-gradient(30deg, #cb208e 0, #6c14cf 100%);
+  background: -o-linear-gradient(30deg, #cb208e 0, #6c14cf 100%);
+  background: linear-gradient(30deg, #cb208e 0, #6c14cf 100%);
+}
+
