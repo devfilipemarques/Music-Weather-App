@@ -32,6 +32,6 @@ export class PopListComponent implements OnInit{
   saveList(data: string) {
     this.listMusicService.saveListMusic(this.listmusic, this.temp, this.city, this.cat, this.musicname);
     this.listSaves = this.listMusicService.getlistSaves();
-    this.toastr.success('Lista de músicas salva com sucesso!');
+    this.toastr.success('Musica salva com sucesso!');
   }
 }
