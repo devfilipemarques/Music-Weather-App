@@ -47,7 +47,7 @@ export class LofiListComponent implements OnInit{
     // Use data variable
     const temp = data.temperature;
     const city = localStorage.getItem('cityName');
-    const catg = 'Pop';
+    const catg = 'Lofi';
     const selectedTrack = this.trackList.find(track => track.id === this.selectedTrackId);
     const title = selectedTrack ? selectedTrack.title : 'N/A';
     const listmusic = selectedTrack ? [selectedTrack.title] : [];
