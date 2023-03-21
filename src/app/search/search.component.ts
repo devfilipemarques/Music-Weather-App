@@ -52,13 +52,14 @@ export class SearchComponent {
             .subscribe(
               response => {
                 const tracks = response.tracks.slice(0, 10);
-                this.trackList = tracks.map(track => ({
+                this.trackList = tracks.map((track, index) => ({
+                  id: `track${index}`,
                   title: track.title,
                   subtitle: track.subtitle,
                   url: track.url,
                   avatar: track.images.coverart
                 }));
-                this.router.navigate(['/rock-list'], { state: { tracks: this.trackList } });
+                this.router.navigate(['/rock-list'], { state: { tracks: this.trackList, title: this.trackList.map(track => track.title), temperature: data.main.temp } });
               },
               error => console.error('Error:', error.status, error.statusText)
             );
@@ -99,13 +100,14 @@ export class SearchComponent {
             .subscribe(
               response => {
                 const tracks = response.tracks.slice(0, 10);
-                this.trackList = tracks.map(track => ({
+                this.trackList = tracks.map((track, index) => ({
+                  id: `track${index}`,
                   title: track.title,
                   subtitle: track.subtitle,
                   url: track.url,
                   avatar: track.images.coverart
                 }));
-                this.router.navigate(['/classic-list'], { state: { tracks: this.trackList } });
+                this.router.navigate(['/classic-list'], { state: { tracks: this.trackList, title: this.trackList.map(track => track.title), temperature: data.main.temp } });
               },
               error => console.error('Error:', error.status, error.statusText)
             );
@@ -123,13 +125,14 @@ export class SearchComponent {
             .subscribe(
               response => {
                 const tracks = response.tracks.slice(0, 10);
-                this.trackList = tracks.map(track => ({
+                this.trackList = tracks.map((track, index) => ({
+                  id: `track${index}`,
                   title: track.title,
                   subtitle: track.subtitle,
                   url: track.url,
                   avatar: track.images.coverart
                 }));
-                this.router.navigate(['/lofi-list'], { state: { tracks: this.trackList } });
+                this.router.navigate(['/lofi-list'], { state: { tracks: this.trackList, title: this.trackList.map(track => track.title), temperature: data.main.temp } });
               },
               error => console.error('Error:', error.status, error.statusText)
             );
