@@ -8,12 +8,6 @@ import { ListMusicService } from '../app.localstorage.module';
 })
 
 export class ListMusicStorageComponent implements OnInit {
-
-  temp!: string;
-  city!: string;
-  catg!: string;
-  musics!: string[];
-
   listSaves!: any[];
 
   constructor(private listMusicService: ListMusicService) { }
@@ -22,10 +16,12 @@ export class ListMusicStorageComponent implements OnInit {
     this.listSaves = this.listMusicService.getlistSaves();
   }
 
-  deleteList(data: string) {
+  deleteList(id: string) {
     if (confirm('Deseja realmente excluir esta lista?')){
-      this.listMusicService.deletelistSaves(data);
-      this.listSaves = this.listMusicService.getlistSaves();
+      let listSaves = JSON.parse(localStorage.getItem('listSaves') || '[]');
+      listSaves = listSaves.filter((list: { id: string }) => list.id !== id);
+      localStorage.setItem('listSaves', JSON.stringify(listSaves));
+      this.listSaves = listSaves;
     }
   }
 

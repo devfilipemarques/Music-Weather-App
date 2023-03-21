@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { v4 as uuidv4 } from 'uuid';
+
 
 @Injectable({
   providedIn: 'root'
@@ -7,29 +9,31 @@ export class ListMusicService {
 
   constructor() { }
 
-  saveListMusic(listmusic: string[], temp: string, city: string, cat: string, musicname: string) {
+  saveListMusic(title: string, temp: string, city: string, catg: string, music: string[]) {
     const data = new Date().toLocaleDateString();
     const list = {
+      id: uuidv4(),
       data: data,
       temp: temp,
       city: city,
-      cat: cat,
-      musicname: musicname,
-      music: listmusic
+      catg: catg,
+      title: title,
+      music: music
     };
     let listSaves = JSON.parse(localStorage.getItem('listSaves') || '[]');
     listSaves.push(list);
     localStorage.setItem('listSaves', JSON.stringify(listSaves));
   }
 
+
   getlistSaves(): any[] {
     return JSON.parse(localStorage.getItem('listSaves') || '[]');
   }
 
-  deletelistSaves(data: string) {
-    let listSaves = JSON.parse(localStorage.getItem('listSaves') || '[]');
-    listSaves = listSaves.filter((list: { data: string; }) => list.data !== data);
-    localStorage.setItem('listSaves', JSON.stringify(listSaves));
+  deletelistSaves(id: string): void {
+    let savedMusics = this.getlistSaves();
+    savedMusics = savedMusics.filter(list => list.id !== id);
+    localStorage.setItem('listSaves', JSON.stringify(savedMusics));
   }
 
 }

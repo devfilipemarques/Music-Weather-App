@@ -10,22 +10,23 @@
           <thead>
             <tr class="fw-bold text-white">
               <th scope="col"></th>
-              <th scope="col"></th>
-              <th scope="col"></th>
-              <th scope="col"></th>
-              <th scope="col"></th>
-              <th scope="col"></th>
+              <th scope="col">Data</th>
+              <th scope="col">Nome da Música</th>
+              <th scope="col">Categoria</th>
+              <th scope="col">Cidade</th>
+              <th scope="col">Temperatura</th>
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let list of listSaves; let i = index" class="shz-partial-trackv5">
-              <td>{{i+1}}</td>
-              <td>{{list.data}}</td>
-              <td>{{list.temp}}</td>
-              <td>{{list.city}}</td>
-              <td>{{list.catg}}</td>
-              <td *ngFor="let musics of list.musics">{{ musics }}</td>
-              <td><button (click)="deleteList(list.data)" class="btn btn-danger">Excluir</button></td>
+              <td class="shz-cell" scope="row">{{ i + 1 }}</td>
+          <td class="shz-cell">{{ list.data }}</td>
+          <td class="shz-cell">{{ list.title }}</td>
+          <td class="shz-cell">{{ list.catg }}</td>
+          <!-- <td class="shz-cell">{{ list.music.join(', ') }}</td> -->
+          <td class="shz-cell">{{ list.city }}</td>
+          <td class="shz-cell">{{ list.temp }}°C</td>
+              <td><button (click)="deleteList(list.id)" class="btn btn-danger">Excluir</button></td>
             </tr>
           </tbody>
         </table>

@@ -33,6 +33,9 @@ export class SearchComponent {
 
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${this.city}&lat=${this.lat}&lon=${this.long}&appid=${this.apiKey}&units=metric`;
 
+    const cityName = (document.getElementById('city') as HTMLInputElement).value;
+    localStorage.setItem('cityName', cityName);
+
     fetch(url)
       .then(response => response.json())
       .then(data => {
@@ -72,13 +75,14 @@ export class SearchComponent {
             .subscribe(
               response => {
                 const tracks = response.tracks.slice(0, 10);
-                this.trackList = tracks.map(track => ({
+                this.trackList = tracks.map((track, index) => ({
+                  id: `track${index}`,
                   title: track.title,
                   subtitle: track.subtitle,
                   url: track.url,
                   avatar: track.images.coverart
                 }));
-                this.router.navigate(['/pop-list'], { state: { tracks: this.trackList } });
+                this.router.navigate(['/pop-list'], { state: { tracks: this.trackList, title: this.trackList.map(track => track.title), temperature: data.main.temp } });
               },
               error => console.error('Error:', error.status, error.statusText)
             );
