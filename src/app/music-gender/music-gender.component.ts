@@ -24,6 +24,7 @@ export class MusicGenderComponent implements OnInit {
   selectedTrackIds: string[] = [];
   selectedTrackId: string | null = null;
   gender: string = '';
+  track: any;
 
   constructor(private listMusicService: ListMusicService, private toastr: ToastrService, private route: ActivatedRoute) { }
 
@@ -48,9 +49,9 @@ export class MusicGenderComponent implements OnInit {
     // Use data variable
     const temp = data.temperature;
     const city = localStorage.getItem('cityName');
-    const catg = 'Pop';
+    const catg = this.gender;
     const selectedTrack = this.trackList.find(track => track.id === this.selectedTrackId);
-    const title = selectedTrack ? selectedTrack.title : 'N/A';
+    const title = selectedTrack && selectedTrack.title !== undefined ? selectedTrack.title : this.track.title;
     const listmusic = selectedTrack ? [selectedTrack.title] : [];
 
     if (city) {
