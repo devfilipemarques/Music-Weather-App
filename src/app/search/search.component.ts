@@ -57,9 +57,11 @@ export class SearchComponent {
                   title: track.title,
                   subtitle: track.subtitle,
                   url: track.url,
-                  avatar: track.images.coverart
+                  avatar: track.images.coverart,
+                  gender: 'Rock'
                 }));
-                this.router.navigate(['/rock-list'], { state: { tracks: this.trackList, title: this.trackList.map(track => track.title), temperature: data.main.temp } });
+                const gender = this.trackList[0].gender;
+                this.router.navigate(['/list-rock'], { state: { tracks: this.trackList, title: this.trackList.map(track => track.title), temperature: data.main.temp, gender: gender } });
               },
               error => console.error('Error:', error.status, error.statusText)
             );
@@ -81,9 +83,11 @@ export class SearchComponent {
                   title: track.title,
                   subtitle: track.subtitle,
                   url: track.url,
-                  avatar: track.images.coverart
+                  avatar: track.images.coverart,
+                  gender: 'Pop'
                 }));
-                this.router.navigate(['/pop-list'], { state: { tracks: this.trackList, title: this.trackList.map(track => track.title), temperature: data.main.temp } });
+                const gender = this.trackList[0].gender;
+                this.router.navigate(['/list-pop'], { state: { tracks: this.trackList, title: this.trackList.map(track => track.title), temperature: data.main.temp, gender: gender } });
               },
               error => console.error('Error:', error.status, error.statusText)
             );
@@ -105,9 +109,11 @@ export class SearchComponent {
                   title: track.title,
                   subtitle: track.subtitle,
                   url: track.url,
-                  avatar: track.images.coverart
+                  avatar: track.images.coverart,
+                  gender: 'Clássica'
                 }));
-                this.router.navigate(['/classic-list'], { state: { tracks: this.trackList, title: this.trackList.map(track => track.title), temperature: data.main.temp } });
+                const gender = this.trackList[0].gender;
+                this.router.navigate(['/list-classic'], { state: { tracks: this.trackList, title: this.trackList.map(track => track.title), temperature: data.main.temp, gender: gender  } });
               },
               error => console.error('Error:', error.status, error.statusText)
             );
@@ -130,9 +136,11 @@ export class SearchComponent {
                   title: track.title,
                   subtitle: track.subtitle,
                   url: track.url,
-                  avatar: track.images.coverart
+                  avatar: track.images.coverart,
+                  gender: 'Lofi'
                 }));
-                this.router.navigate(['/lofi-list'], { state: { tracks: this.trackList, title: this.trackList.map(track => track.title), temperature: data.main.temp } });
+                const gender = this.trackList[0].gender;
+                this.router.navigate(['/list-lofi'], { state: { tracks: this.trackList, title: this.trackList.map(track => track.title), temperature: data.main.temp, gender: gender  } });
               },
               error => console.error('Error:', error.status, error.statusText)
             );

@@ -1,17 +1,15 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { RockListComponent } from './rock-list/rock-list.component';
-import { PopListComponent } from './pop-list/pop-list.component';
-import { ClassicListComponent } from './classic-list/classic-list.component';
-import { LofiListComponent } from './lofi-list/lofi-list.component';
 import { ListMusicStorageComponent } from './list-music-storage/list-music-storage.component';
+import { MusicGenderComponent } from './music-gender/music-gender.component';
 
 const routes: Routes = [
-  { path: 'rock-list', component: RockListComponent },
-  { path: 'pop-list', component: PopListComponent },
-  { path: 'classic-list', component: ClassicListComponent },
-  { path: 'lofi-list', component: LofiListComponent },
   { path: 'music-list', component: ListMusicStorageComponent },
+  { path: 'list-music', component: MusicGenderComponent },
+  { path: 'list-rock', component: MusicGenderComponent },
+  { path: 'list-classic', component: MusicGenderComponent },
+  { path: 'list-pop', component: MusicGenderComponent },
+  { path: 'list-lofi', component: MusicGenderComponent },
 ];
 
 @NgModule({

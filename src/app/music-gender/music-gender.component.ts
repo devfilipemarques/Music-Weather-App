@@ -13,16 +13,17 @@ interface Track {
 }
 
 @Component({
-  selector: 'app-lofi-list',
-  templateUrl: './lofi-list.component.html',
-  styleUrls: ['./lofi-list.component.css']
+  selector: 'app-music-gender',
+  templateUrl: './music-gender.component.html',
+  styleUrls: ['./music-gender.component.css']
 })
-export class LofiListComponent implements OnInit{
+export class MusicGenderComponent implements OnInit {
 
   trackList: Track[] = [];
   listSaves: any[] = [];
   selectedTrackIds: string[] = [];
   selectedTrackId: string | null = null;
+  gender: string = '';
 
   constructor(private listMusicService: ListMusicService, private toastr: ToastrService, private route: ActivatedRoute) { }
 
@@ -33,8 +34,8 @@ export class LofiListComponent implements OnInit{
         track.trackId = track.id; // Adiciona o id da música como trackId
         return track;
       });
+      this.gender = state.gender; // Set the value of catg
     }
-
     this.listSaves = this.listMusicService.getlistSaves();
   }
 
@@ -47,7 +48,7 @@ export class LofiListComponent implements OnInit{
     // Use data variable
     const temp = data.temperature;
     const city = localStorage.getItem('cityName');
-    const catg = 'Lofi';
+    const catg = 'Pop';
     const selectedTrack = this.trackList.find(track => track.id === this.selectedTrackId);
     const title = selectedTrack ? selectedTrack.title : 'N/A';
     const listmusic = selectedTrack ? [selectedTrack.title] : [];

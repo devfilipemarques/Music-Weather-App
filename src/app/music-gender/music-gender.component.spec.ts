@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ClassicListComponent } from './classic-list.component';
+import { MusicGenderComponent } from './music-gender.component';
 
-describe('ClassicListComponent', () => {
-  let component: ClassicListComponent;
-  let fixture: ComponentFixture<ClassicListComponent>;
+describe('MusicGenderComponent', () => {
+  let component: MusicGenderComponent;
+  let fixture: ComponentFixture<MusicGenderComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ClassicListComponent ]
+      declarations: [ MusicGenderComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ClassicListComponent);
+    fixture = TestBed.createComponent(MusicGenderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
